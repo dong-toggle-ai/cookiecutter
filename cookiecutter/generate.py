@@ -228,6 +228,7 @@ def render_and_create_dir(
             )
         else:
             msg = f'Error: "{dir_to_create}" directory already exists'
+            logger.error(msg, exc_info=True, stack_info=True)
             raise OutputDirExistsException(msg)
     else:
         make_sure_path_exists(dir_to_create)
